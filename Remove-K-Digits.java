@@ -1,11 +1,9 @@
 class Solution {
     
     public String removeKdigits(String num, int k) {
-        
-        String str=\\;
+        StringBuilder str = new StringBuilder();
         if(k==num.length()){
-            str= \0\;
-            return str;
+            return \0\;
         }
         int n=num.length();
         Stack <Character> stack = new Stack<>();
@@ -21,14 +19,16 @@ class Solution {
             k--;
         }
         while(!stack.isEmpty()){
-            str = stack.pop() + str ;
+            str.append(stack.pop());
         }
+        str.reverse();
 
         while( str.length() > 1 && str.charAt(0)=='0'){
-            str = str.substring(1);
+            str = str.deleteCharAt(0);
         }
+
         
-        return str;
+        return str.toString();
 
     }
     
